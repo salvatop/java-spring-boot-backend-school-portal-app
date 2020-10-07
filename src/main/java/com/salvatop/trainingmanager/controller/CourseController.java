@@ -41,8 +41,6 @@ public class CourseController {
         return courseRepository.save(course);
     }
 
-    // TODO: Teacher of a course
-
     @GetMapping("/course/{courseId}/students")
     public Set<Student> getStudentsForCourse(@PathVariable String courseId) {
         try {

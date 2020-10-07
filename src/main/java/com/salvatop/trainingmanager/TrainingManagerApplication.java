@@ -15,10 +15,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 @SpringBootApplication
-public class TraningManagerApplication {
+public class TrainingManagerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(com.salvatop.trainingmanager.TraningManagerApplication.class, args);
+        SpringApplication.run(TrainingManagerApplication.class, args);
     }
 
     @Bean
