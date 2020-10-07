@@ -25,10 +25,10 @@ public class TrainingManagerApplication {
     CommandLineRunner runner (TraineeRepository traineeRepository, CourseRepository courseRepository, TrainerRepository trainerRepository) {
         return args -> {
             Arrays.asList("Nir_100,Lily_200".split(","))
-                    .forEach(nameId -> {
+                    .forEach(traineeId -> {
                         Trainee trainee = new Trainee();
-                        trainee.setStudentId(nameId.split("_")[1]);
-                        trainee.setName(nameId.split("_")[0]);
+                        trainee.setTraineeId(traineeId.split("_")[1]);
+                        trainee.setName(traineeId.split("_")[0]);
                         trainee.setCourses(new HashSet<>());
                         traineeRepository.save(trainee);
                     });
@@ -42,10 +42,10 @@ public class TrainingManagerApplication {
                         courseRepository.save(course);
                     });
             Arrays.asList("Jack_920,Alice_930".split(","))
-                    .forEach(teacherId -> {
+                    .forEach(trainerId -> {
                         Trainer trainer = new Trainer();
-                        trainer.setTeacherId(teacherId.split("_")[1]);
-                        trainer.setName(teacherId.split("_")[0]);
+                        trainer.setTrainerId(trainerId.split("_")[1]);
+                        trainer.setName(trainerId.split("_")[0]);
                         trainer.setCourses(new HashSet<>());
                         trainerRepository.save(trainer);
                     });

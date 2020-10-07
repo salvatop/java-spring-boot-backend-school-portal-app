@@ -18,7 +18,7 @@ public class Trainee {
     private long id;
 
     @Column(unique = true, nullable = false)
-    private String studentId;
+    private String traineeId;
 
     @Column(nullable = false)
     private String name;

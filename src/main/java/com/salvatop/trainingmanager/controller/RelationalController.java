@@ -25,32 +25,32 @@ public class RelationalController {
         this.trainerRepository = trainerRepository;
     }
 
-    @PostMapping("/assign/student")
-    public String assignCourseToStudent(@RequestParam String courseId, @RequestParam String studentId) {
+    @PostMapping("/assign/trainee")
+    public String assignCourseToTrainee(@RequestParam String courseId, @RequestParam String traineeId) {
         try {
             Course course = courseRepository.findCourseByCourseId(courseId).orElseThrow(Exception::new);
-            Trainee trainee = traineeRepository.findStudentByStudentId(studentId).orElseThrow(Exception::new);
+            Trainee trainee = traineeRepository.findTraineeByTraineeId(traineeId).orElseThrow(Exception::new);
             course.getTrainees().add(trainee);
             trainee.getCourses().add(course);
             courseRepository.save(course);
             traineeRepository.save(trainee);
-            return "Course[" + courseId + "] ~ Trainee[" + studentId + "]";
+            return "Course[" + courseId + "] ~ Trainee[" + traineeId + "]";
         } catch (Exception e) {
             e.printStackTrace();
-            return "Cannot find course or student!";
+            return "Cannot find course or trainee!";
         }
     }
 
     @PostMapping("/assign/trainer")
-    public String assignCourseToTeacher(@RequestParam String courseId, @RequestParam String teacherId) {
+    public String assignCourseToTrainer(@RequestParam String courseId, @RequestParam String trainerId) {
         try {
             Course course = courseRepository.findCourseByCourseId(courseId).orElseThrow(Exception::new);
-            Trainer trainer = trainerRepository.findTeacherByTeacherId(teacherId).orElseThrow(Exception::new);
+            Trainer trainer = trainerRepository.findTrainerByTrainerId(trainerId).orElseThrow(Exception::new);
             course.setTrainer(trainer);
             trainer.getCourses().add(course);
             courseRepository.save(course);
             trainerRepository.save(trainer);
-            return "Course[" + courseId + "] ~ Trainer[" + teacherId + "]";
+            return "Course[" + courseId + "] ~ Trainer[" + trainerId + "]";
         } catch (Exception e) {
             e.printStackTrace();
             return "Cannot find course or trainer!";

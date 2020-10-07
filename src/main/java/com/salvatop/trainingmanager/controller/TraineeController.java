@@ -26,24 +26,24 @@ public class TraineeController {
         return traineeRepository.findAll();
     }
 
-    @GetMapping("/student")
+    @GetMapping("/trainee")
     public Trainee findOne(@RequestParam String studentId) throws Exception {
-        return traineeRepository.findStudentByStudentId(studentId).orElseThrow(Exception::new);
+        return traineeRepository.findTraineeByTraineeId(studentId).orElseThrow(Exception::new);
     }
 
     @PostMapping("/trainees")
     public Trainee save(@RequestBody TraineeForm traineeForm) {
         Trainee trainee = new Trainee();
-        trainee.setStudentId(traineeForm.getStudentId());
+        trainee.setTraineeId(traineeForm.getTraineeId());
         trainee.setName(traineeForm.getName());
         trainee.setCourses(new HashSet<>());
         return traineeRepository.save(trainee);
     }
 
-    @GetMapping("/student/{studentId}/courses")
-    public Set<Course> getCoursesForStudent(@PathVariable String studentId) {
+    @GetMapping("/trainee/{traineeId}/courses")
+    public Set<Course> getCoursesForTrainee(@PathVariable String traineeId) {
         try {
-            return traineeRepository.findStudentByStudentId(studentId).orElseThrow(Exception::new).getCourses();
+            return traineeRepository.findTraineeByTraineeId(traineeId).orElseThrow(Exception::new).getCourses();
         } catch (Exception e) {
             e.printStackTrace();
             return new HashSet<>();

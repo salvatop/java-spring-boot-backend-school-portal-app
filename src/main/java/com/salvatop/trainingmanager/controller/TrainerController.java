@@ -21,29 +21,29 @@ public class TrainerController {
         this.trainerRepository = trainerRepository;
     }
 
-    @GetMapping("/teachers")
+    @GetMapping("/trainers")
     public Collection<Trainer> findAll() {
         return trainerRepository.findAll();
     }
 
     @GetMapping("/trainer")
-    public Trainer findOne(@RequestParam String teacherId) throws Exception {
-        return trainerRepository.findTeacherByTeacherId(teacherId).orElseThrow(Exception::new);
+    public Trainer findOne(@RequestParam String trainerId) throws Exception {
+        return trainerRepository.findTrainerByTrainerId(trainerId).orElseThrow(Exception::new);
     }
 
-    @PostMapping("/teachers")
+    @PostMapping("/trainers")
     public Trainer save(@RequestBody TrainerForm trainerForm) {
         Trainer trainer = new Trainer();
-        trainer.setTeacherId(trainerForm.getTeacherId());
+        trainer.setTrainerId(trainerForm.getTrainerId());
         trainer.setName(trainerForm.getName());
         trainer.setCourses(new HashSet<>());
         return trainerRepository.save(trainer);
     }
 
-    @GetMapping("/trainer/{teacherId}/courses")
-    public Set<Course> getCoursesForTeacher(@PathVariable String teacherId) {
+    @GetMapping("/trainer/{trainerId}/courses")
+    public Set<Course> getCoursesForTrainer(@PathVariable String trainerId) {
         try {
-            return trainerRepository.findTeacherByTeacherId(teacherId).orElseThrow(Exception::new).getCourses();
+            return trainerRepository.findTrainerByTrainerId(trainerId).orElseThrow(Exception::new).getCourses();
         } catch (Exception e) {
             e.printStackTrace();
             return new HashSet<>();

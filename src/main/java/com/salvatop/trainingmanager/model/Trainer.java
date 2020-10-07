@@ -18,7 +18,7 @@ public class Trainer {
     private long id;
 
     @Column(unique = true, nullable = false)
-    private String teacherId;
+    private String trainerId;
 
     @Column(nullable = false)
     private String name;

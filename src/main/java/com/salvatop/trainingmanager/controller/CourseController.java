@@ -42,7 +42,7 @@ public class CourseController {
     }
 
     @GetMapping("/course/{courseId}/trainees")
-    public Set<Trainee> getStudentsForCourse(@PathVariable String courseId) {
+    public Set<Trainee> getTraineeForCourse(@PathVariable String courseId) {
         try {
             return courseRepository.findCourseByCourseId(courseId).orElseThrow(Exception::new).getTrainees();
         } catch (Exception e) {
