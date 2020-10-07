@@ -3,8 +3,8 @@ package com.salvatop.trainingmanager.form;
 import lombok.Data;
 
 @Data
-public class TeacherForm {
+public class TraineeForm {
 
-    private String teacherId;
+    private String studentId;
     private String name;
 }

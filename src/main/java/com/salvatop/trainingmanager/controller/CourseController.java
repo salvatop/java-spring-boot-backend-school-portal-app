@@ -2,7 +2,7 @@ package com.salvatop.trainingmanager.controller;
 
 import com.salvatop.trainingmanager.form.CourseForm;
 import com.salvatop.trainingmanager.model.Course;
-import com.salvatop.trainingmanager.model.Student;
+import com.salvatop.trainingmanager.model.Trainee;
 import com.salvatop.trainingmanager.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -37,14 +37,14 @@ public class CourseController {
         course.setCourseId(courseForm.getCourseId());
         course.setTitle(courseForm.getTitle());
         course.setCredits(courseForm.getCredits());
-        course.setStudents(new HashSet<>());
+        course.setTrainees(new HashSet<>());
         return courseRepository.save(course);
     }
 
-    @GetMapping("/course/{courseId}/students")
-    public Set<Student> getStudentsForCourse(@PathVariable String courseId) {
+    @GetMapping("/course/{courseId}/trainees")
+    public Set<Trainee> getStudentsForCourse(@PathVariable String courseId) {
         try {
-            return courseRepository.findCourseByCourseId(courseId).orElseThrow(Exception::new).getStudents();
+            return courseRepository.findCourseByCourseId(courseId).orElseThrow(Exception::new).getTrainees();
         } catch (Exception e) {
             e.printStackTrace();
             return new HashSet<>();

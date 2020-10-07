@@ -9,7 +9,7 @@ import java.util.Set;
 
 @Entity
 @Data
-@EqualsAndHashCode(exclude = {"students", "teacher"})
+@EqualsAndHashCode(exclude = {"trainer"})
 public class Course {
 
     @Id
@@ -28,9 +28,9 @@ public class Course {
 
     @ManyToMany
     @JsonIgnore
-    private Set<Student> students;
+    private Set<Trainee> trainees;
 
     @ManyToOne
     @JsonIgnore
-    private Teacher teacher;
+    private Trainer trainer;
 }

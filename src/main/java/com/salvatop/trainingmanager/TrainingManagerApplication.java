@@ -1,11 +1,11 @@
 package com.salvatop.trainingmanager;
 
 import com.salvatop.trainingmanager.model.Course;
-import com.salvatop.trainingmanager.model.Student;
-import com.salvatop.trainingmanager.model.Teacher;
+import com.salvatop.trainingmanager.model.Trainee;
+import com.salvatop.trainingmanager.model.Trainer;
 import com.salvatop.trainingmanager.repository.CourseRepository;
-import com.salvatop.trainingmanager.repository.StudentRepository;
-import com.salvatop.trainingmanager.repository.TeacherRepository;
+import com.salvatop.trainingmanager.repository.TraineeRepository;
+import com.salvatop.trainingmanager.repository.TrainerRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,15 +22,15 @@ public class TrainingManagerApplication {
     }
 
     @Bean
-    CommandLineRunner runner (StudentRepository studentRepository, CourseRepository courseRepository, TeacherRepository teacherRepository) {
+    CommandLineRunner runner (TraineeRepository traineeRepository, CourseRepository courseRepository, TrainerRepository trainerRepository) {
         return args -> {
             Arrays.asList("Nir_100,Lily_200".split(","))
                     .forEach(nameId -> {
-                        Student student = new Student();
-                        student.setStudentId(nameId.split("_")[1]);
-                        student.setName(nameId.split("_")[0]);
-                        student.setCourses(new HashSet<>());
-                        studentRepository.save(student);
+                        Trainee trainee = new Trainee();
+                        trainee.setStudentId(nameId.split("_")[1]);
+                        trainee.setName(nameId.split("_")[0]);
+                        trainee.setCourses(new HashSet<>());
+                        traineeRepository.save(trainee);
                     });
             Arrays.asList("iOS_352,Android_420,Algorithms_242".split(","))
                     .forEach(titleId -> {
@@ -38,16 +38,16 @@ public class TrainingManagerApplication {
                         course.setCourseId(titleId.split("_")[1]);
                         course.setTitle(titleId.split("_")[0]);
                         course.setCredits(3);
-                        course.setStudents(new HashSet<>());
+                        course.setTrainees(new HashSet<>());
                         courseRepository.save(course);
                     });
             Arrays.asList("Jack_920,Alice_930".split(","))
                     .forEach(teacherId -> {
-                        Teacher teacher = new Teacher();
-                        teacher.setTeacherId(teacherId.split("_")[1]);
-                        teacher.setName(teacherId.split("_")[0]);
-                        teacher.setCourses(new HashSet<>());
-                        teacherRepository.save(teacher);
+                        Trainer trainer = new Trainer();
+                        trainer.setTeacherId(teacherId.split("_")[1]);
+                        trainer.setName(teacherId.split("_")[0]);
+                        trainer.setCourses(new HashSet<>());
+                        trainerRepository.save(trainer);
                     });
         };
     }

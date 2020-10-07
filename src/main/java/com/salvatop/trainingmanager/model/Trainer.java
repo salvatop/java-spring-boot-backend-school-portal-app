@@ -10,7 +10,7 @@ import java.util.Set;
 @Entity
 @Data
 @EqualsAndHashCode(exclude = "courses")
-public class Student {
+public class Trainer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,12 +18,12 @@ public class Student {
     private long id;
 
     @Column(unique = true, nullable = false)
-    private String studentId;
+    private String teacherId;
 
     @Column(nullable = false)
     private String name;
 
-    @ManyToMany
+    @OneToMany
     @JsonIgnore
     private Set<Course> courses;
 }
