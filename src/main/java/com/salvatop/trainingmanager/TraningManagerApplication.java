@@ -1,11 +1,11 @@
-package com.salvatop.omnivox;
+package com.salvatop.trainingmanager;
 
-import com.salvatop.omnivox.model.Course;
-import com.salvatop.omnivox.model.Student;
-import com.salvatop.omnivox.model.Teacher;
-import com.salvatop.omnivox.repository.CourseRepository;
-import com.salvatop.omnivox.repository.StudentRepository;
-import com.salvatop.omnivox.repository.TeacherRepository;
+import com.salvatop.trainingmanager.model.Course;
+import com.salvatop.trainingmanager.model.Student;
+import com.salvatop.trainingmanager.model.Teacher;
+import com.salvatop.trainingmanager.repository.CourseRepository;
+import com.salvatop.trainingmanager.repository.StudentRepository;
+import com.salvatop.trainingmanager.repository.TeacherRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,10 +15,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 @SpringBootApplication
-public class OmnivoxApplication {
+public class TraningManagerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(OmnivoxApplication.class, args);
+        SpringApplication.run(com.salvatop.trainingmanager.TraningManagerApplication.class, args);
     }
 
     @Bean

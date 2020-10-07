@@ -1,6 +1,6 @@
-package com.salvatop.omnivox.repository;
+package com.salvatop.trainingmanager.repository;
 
-import com.salvatop.omnivox.model.Course;
+import com.salvatop.trainingmanager.model.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

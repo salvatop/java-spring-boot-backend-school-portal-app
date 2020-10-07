@@ -1,4 +1,4 @@
-package com.salvatop.omnivox.model;
+package com.salvatop.trainingmanager.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
@@ -9,8 +9,8 @@ import java.util.Set;
 
 @Entity
 @Data
-@EqualsAndHashCode(exclude = "courses")
-public class Student {
+@EqualsAndHashCode(exclude = {"students", "teacher"})
+public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,12 +18,19 @@ public class Student {
     private long id;
 
     @Column(unique = true, nullable = false)
-    private String studentId;
+    private String courseId;
 
     @Column(nullable = false)
-    private String name;
+    private String title;
+
+    @Column(nullable = false)
+    private int credits;
 
     @ManyToMany
     @JsonIgnore
-    private Set<Course> courses;
+    private Set<Student> students;
+
+    @ManyToOne
+    @JsonIgnore
+    private Teacher teacher;
 }

@@ -1,4 +1,4 @@
-package com.salvatop.omnivox.form;
+package com.salvatop.trainingmanager.form;
 
 import lombok.Data;
 

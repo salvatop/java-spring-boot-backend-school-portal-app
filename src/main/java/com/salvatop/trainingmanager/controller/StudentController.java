@@ -1,9 +1,9 @@
-package com.salvatop.omnivox.controller;
+package com.salvatop.trainingmanager.controller;
 
-import com.salvatop.omnivox.form.StudentForm;
-import com.salvatop.omnivox.model.Course;
-import com.salvatop.omnivox.model.Student;
-import com.salvatop.omnivox.repository.StudentRepository;
+import com.salvatop.trainingmanager.form.StudentForm;
+import com.salvatop.trainingmanager.model.Course;
+import com.salvatop.trainingmanager.model.Student;
+import com.salvatop.trainingmanager.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

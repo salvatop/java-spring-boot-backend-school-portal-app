@@ -1,4 +1,4 @@
-package com.salvatop.omnivox.model;
+package com.salvatop.trainingmanager.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
