@@ -65,5 +65,4 @@ The following API endpoints are available for interacting with the backend:
 
 ##  Database Configuration
 The application uses a database to store training-related data. You will need to configure the database connection properties in the application.properties file.
- 
- ![screenshoot1](images/screenshot1.png)
+
